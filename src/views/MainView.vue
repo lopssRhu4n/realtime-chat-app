@@ -14,9 +14,12 @@ onMounted(() => {
   onAuthStateChanged(auth, () => {
     if (auth.currentUser) {
       store.changeAuth(true);
+      mainParts.forEach((main) => main.classList.remove("hidden"));
+
       return;
     }
     store.changeAuth(false);
+    mainParts.forEach((main) => main.classList.remove("hidden"));
   });
 });
 </script>
